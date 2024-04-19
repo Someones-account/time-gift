@@ -1,7 +1,14 @@
+import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [time, setTime] = useState(new Date())
+
+  useEffect(() => {
+    setInterval(() => setTime(new Date()), 1000)
+  })
+
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +16,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>{time.toLocaleTimeString}</p>
       </header>
     </div>
   );
